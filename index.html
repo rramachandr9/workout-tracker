@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<meta name="theme-color" content="#C00000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Workout Log" />
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="icon" href="icons/icon-192.png" />
+<title>Resistance Training Tracker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-title" id="topbarTitle">Workout Log</div>
+  <button class="icon-btn" id="settingsBtn" aria-label="Settings">&#9881;</button>
+</header>
+
+<main id="app" class="app"></main>
+
+<nav class="tabbar" id="tabbar">
+  <button class="tab-btn active" data-tab="home">
+    <span class="tab-icon">&#127968;</span><span>Home</span>
+  </button>
+  <button class="tab-btn" data-tab="program">
+    <span class="tab-icon">&#128220;</span><span>Program</span>
+  </button>
+  <button class="tab-btn" data-tab="log">
+    <span class="tab-icon">&#9998;</span><span>Log</span>
+  </button>
+  <button class="tab-btn" data-tab="progress">
+    <span class="tab-icon">&#128200;</span><span>Progress</span>
+  </button>
+</nav>
+
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<div class="sheet" id="settingsSheet">
+  <div class="sheet-handle"></div>
+  <h2>Settings</h2>
+  <div class="settings-row">
+    <label for="unitSelect">Weight unit</label>
+    <select id="unitSelect">
+      <option value="lb">lb</option>
+      <option value="kg">kg</option>
+    </select>
+  </div>
+  <div class="settings-row settings-col">
+    <button class="btn btn-secondary" id="exportBtn">Export data (backup)</button>
+    <button class="btn btn-secondary" id="importBtn">Import data</button>
+    <input type="file" id="importFile" accept="application/json" hidden />
+    <button class="btn btn-danger" id="clearBtn">Clear all logged data</button>
+  </div>
+  <button class="btn btn-primary sheet-close" id="closeSheetBtn">Done</button>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
